@@ -44,6 +44,10 @@ app.options('/', (req, res) => {
   res.sendStatus(200);
 });
 
+app.get('/', (req, res) => {
+  return res('Ola Mundo!')
+});
+
 // Inicializa o servidor
 app.listen(PORT, () => {
   console.log('Server is running on port ' + PORT);

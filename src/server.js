@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = 3333;
 
+var number = 0
 // Middleware para parsear o corpo da requisição como JSON
 app.use(express.json());
 
@@ -20,6 +21,7 @@ app.use((req, res, next) => {
 
 // Rota para lidar com requisições POST (dados do webhook)
 app.post('/', (req, res) => {
+  number = number + 1
   const dados = req.body;
 
   console.log(dados);
@@ -41,11 +43,13 @@ app.post('/', (req, res) => {
 
 // Rota para lidar com requisições OPTIONS (CORS)
 app.options('/', (req, res) => {
+  number = number + 1
   res.sendStatus(200);
 });
 
 app.get('/', (req, res) => {
-  res.send('Ola Mundo!')
+  number = number + 1
+  res.send(`Number de requisição: ${number}`)
 });
 
 // Inicializa o servidor

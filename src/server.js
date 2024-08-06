@@ -45,7 +45,7 @@ app.options('/', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  return res('Ola Mundo!')
+  res.send('Ola Mundo!')
 });
 
 // Inicializa o servidor
